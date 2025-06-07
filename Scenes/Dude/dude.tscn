@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://br2rww5fdx5qt"]
+[gd_scene load_steps=2 format=3 uid="uid://br2rww5fdx5qt"]
+
+[ext_resource type="Script" path="res://Scenes/Dude/Dude.cs" id="1_auuxa"]
 
 [node name="Dude" type="Node2D"]
+script = ExtResource("1_auuxa")
+
+[node name="Body" type="Node2D" parent="."]

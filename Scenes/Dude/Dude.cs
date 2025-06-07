@@ -3,6 +3,7 @@ using System;
 
 namespace DudeBattler.Scenes.Dude;
 
+[Tool, GlobalClass]
 public partial class Dude : Node2D
 {
 
@@ -32,7 +33,7 @@ public partial class Dude : Node2D
 
 	private void DrawLimb()
 	{
-		
+
 	}
 
 
