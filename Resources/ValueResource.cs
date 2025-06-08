@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using dudebattler.Scripts;
 using Godot;
 
 namespace dudebattler.Resources;
@@ -20,7 +21,7 @@ public partial class ValueResource : Resource
                 _value = value;
                 if (Integer)
                 {
-                    _value = (float)Math.Floor(value);
+                    _value = (float)Math.Floor(_value);
                 }
                 EmitChanged();
             }
@@ -46,7 +47,52 @@ public partial class ValueResource : Resource
         }
     }
 
+    private float _min = float.MinValue;
+    [Export]
+    public float Min
+    {
+        get => _min;
+        set
+        {
+            if (_min != value)
+            {
+                _min = value;
+                if (Value < value)
+                {
+                    Value = value;
+                }
+                EmitChanged();
+            }
+        }
+    }
+
+    private float _max = float.MaxValue;
+    [Export]
+    public float Max
+    {
+        get => _max;
+        set
+        {
+            if (_max != value)
+            {
+                _max = value;
+                if (Value > value)
+                {
+                    Value = value;
+                }
+                EmitChanged();
+            }
+        }
+    }
+
     public int FlooredValue => (int)Math.Floor(Value);
     public int CeilValue => (int)Math.Ceiling(Value);
     public int RoundValue => (int)Math.Round(Value);
+
+    public void RandomizeValue()
+    {
+        float num = Tools.Rand.Next((int)Math.Floor(Min), (int)Math.Ceiling(Max) + 1);
+        if (!Integer) num += (float)Tools.Rand.NextDouble();
+        Value = num;
+    }
 }
