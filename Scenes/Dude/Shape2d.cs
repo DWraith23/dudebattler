@@ -45,10 +45,11 @@ public partial class Shape2d : Node2D
 	{
 		if (Shape != null)
 		{
-			Shape.Changed += QueueRedraw;
-			Shape.CollisionChanged += CollisionChanged;
-			CollisionChanged(Shape.HasCollision);
 			QueueRedraw();
+			if (Collider == null)
+			{
+				CollisionChanged(Shape.HasCollision);
+			}
 		}
 	}
 

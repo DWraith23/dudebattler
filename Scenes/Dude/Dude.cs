@@ -25,6 +25,7 @@ public partial class Dude : Node2D
 	{
 		Task[] tasks = [];
 		Animator.Play("stand");
+		await Animator.ToSignal(Animator, AnimationMixer.SignalName.AnimationFinished);
 		Animator.Play("ready");
 		await Animator.ToSignal(Animator, AnimationMixer.SignalName.AnimationFinished);
 	}
