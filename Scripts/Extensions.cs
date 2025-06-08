@@ -1,3 +1,6 @@
+using System.Threading.Tasks;
+using Godot;
+
 namespace dudebattler.Scripts;
 
 /// <summary>
@@ -7,4 +10,5 @@ namespace dudebattler.Scripts;
 public static class Extensions
 {
 
+    public static async Task Completed(this Tween tween) => await tween.ToSignal(tween, Tween.SignalName.Finished);
 }
