@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpaoq7cri63pn"]
+
+[ext_resource type="Script" path="res://Scenes/Dude/Shape2d.cs" id="1_55cks"]
+[ext_resource type="Script" path="res://Resources/Shape2D/LineData.cs" id="2_0oncs"]
+[ext_resource type="Script" path="res://Resources/Shape2D/CircleData.cs" id="3_lt0by"]
+
+[sub_resource type="Resource" id="Resource_2iw6l"]
+script = ExtResource("2_0oncs")
+Start = Vector2(0, 10)
+End = Vector2(0, -10)
+Width = 5.0
+Color = Color(0, 0, 0, 1)
+HasCollision = false
+
+[sub_resource type="Resource" id="Resource_be58a"]
+script = ExtResource("3_lt0by")
+Position = Vector2(0, 0)
+Radius = 6.0
+Color = Color(0, 0, 0, 1)
+Filled = true
+Width = -1.0
+Antialiased = false
+HasCollision = false
+
+[sub_resource type="Resource" id="Resource_c16um"]
+script = ExtResource("2_0oncs")
+Start = Vector2(10, 0)
+End = Vector2(-10, 0)
+Width = 3.0
+Color = Color(0, 0, 0, 1)
+HasCollision = false
+
+[sub_resource type="Resource" id="Resource_lvk4r"]
+script = ExtResource("2_0oncs")
+Start = Vector2(0, 0)
+End = Vector2(0, -70)
+Width = 3.0
+Color = Color(0, 0, 0, 1)
+HasCollision = true
+
+[node name="Sword" type="Node2D"]
+
+[node name="Hilt" type="Node2D" parent="."]
+script = ExtResource("1_55cks")
+Shape = SubResource("Resource_2iw6l")
+
+[node name="Pommel" type="Node2D" parent="Hilt"]
+position = Vector2(0, 10)
+script = ExtResource("1_55cks")
+Shape = SubResource("Resource_be58a")
+
+[node name="Guard" type="Node2D" parent="Hilt"]
+position = Vector2(0, -10)
+script = ExtResource("1_55cks")
+Shape = SubResource("Resource_c16um")
+
+[node name="Blade" type="Node2D" parent="Hilt/Guard"]
+script = ExtResource("1_55cks")
+Shape = SubResource("Resource_lvk4r")
