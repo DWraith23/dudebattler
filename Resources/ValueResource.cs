@@ -1,11 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using dudebattler.Scripts;
+using DudeBattler.Scripts;
 using Godot;
 
-namespace dudebattler.Resources;
+namespace DudeBattler.Resources;
 
 public partial class ValueResource : Resource
 {
