@@ -1,10 +1,9 @@
 using System;
 using System.Threading.Tasks;
+using DudeBattler.Scripts;
 using Godot;
-using Godot.Collections;
-using Microsoft.VisualBasic;
 
-namespace dudebattler.Scripts;
+namespace DudeBattler.Scripts;
 
 /// <summary>
 /// This class contains utility methods and tools that can be used throughout the game.
