@@ -1,505 +1,54 @@
-[gd_scene load_steps=36 format=3 uid="uid://br2rww5fdx5qt"]
+[gd_scene load_steps=5 format=3 uid="uid://br2rww5fdx5qt"]
 
 [ext_resource type="Script" path="res://Scenes/Dude/Dude.cs" id="1_auuxa"]
-[ext_resource type="Script" path="res://Scenes/Dude/Shape2d.cs" id="2_aqj5o"]
-[ext_resource type="Script" path="res://Resources/Shape2D/CircleData.cs" id="3_pqrap"]
-[ext_resource type="Script" path="res://Resources/Shape2D/LineData.cs" id="4_tkouq"]
-[ext_resource type="PackedScene" uid="uid://cpaoq7cri63pn" path="res://Scenes/Gear/sword.tscn" id="5_227js"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1whg0"]
-radius = 41.0
-height = 224.0
-
-[sub_resource type="Resource" id="Resource_a53pn"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_ejd40"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 20.0
-Color = Color(0, 0, 0, 1)
-Filled = false
-Width = 5.0
-Antialiased = false
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_wnadc"]
-script = ExtResource("4_tkouq")
-Start = Vector2(0, 0)
-End = Vector2(0, 100)
-Width = 5.0
-Color = Color(0, 0, 0, 1)
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_d4u20"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_y8b8l"]
-script = ExtResource("4_tkouq")
-Start = Vector2(0, 0)
-End = Vector2(40, 0)
-Width = 5.0
-Color = Color(0, 0, 0, 1)
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_qfgs8"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_3le4i"]
-script = ExtResource("4_tkouq")
-Start = Vector2(0, 0)
-End = Vector2(35, 0)
-Width = 5.0
-Color = Color(0, 0, 0, 1)
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_2dh1f"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_bxspk"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_d0cg8"]
-script = ExtResource("4_tkouq")
-Start = Vector2(0, 0)
-End = Vector2(-40, 0)
-Width = 5.0
-Color = Color(0, 0, 0, 1)
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_ek82g"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_rhgn3"]
-script = ExtResource("4_tkouq")
-Start = Vector2(0, 0)
-End = Vector2(-35, 0)
-Width = 5.0
-Color = Color(0, 0, 0, 1)
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_gbit6"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_o2j5w"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_iev2v"]
-script = ExtResource("4_tkouq")
-Start = Vector2(0, 0)
-End = Vector2(50, 0)
-Width = 5.0
-Color = Color(0, 0, 0, 1)
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_or1nr"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_7xhk5"]
-script = ExtResource("4_tkouq")
-Start = Vector2(0, 0)
-End = Vector2(50, 0)
-Width = 5.0
-Color = Color(0, 0, 0, 1)
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_615p8"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_x1s5s"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_ppt68"]
-script = ExtResource("4_tkouq")
-Start = Vector2(0, 0)
-End = Vector2(-50, 0)
-Width = 5.0
-Color = Color(0, 0, 0, 1)
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_dpqvo"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Resource" id="Resource_m338c"]
-script = ExtResource("4_tkouq")
-Start = Vector2(0, 0)
-End = Vector2(-50, 0)
-Width = 5.0
-Color = Color(0, 0, 0, 1)
-HasCollision = true
-
-[sub_resource type="Resource" id="Resource_ebrv1"]
-script = ExtResource("3_pqrap")
-Position = Vector2(0, 0)
-Radius = 5.0
-Color = Color(0, 0, 0, 1)
-Filled = true
-Width = -1.0
-Antialiased = false
-HasCollision = false
-
-[sub_resource type="Animation" id="Animation_dsard"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Parts/Body/Arms/Left Arm/Upper Arm/Joint:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.785398, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Parts/Body/Legs/Left Leg:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.785398, -0.0005, 0, 0.0005, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Parts/Body/Legs/Left Leg/Upper Leg/Joint:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.785398, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Parts/Body/Legs/Right Leg:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-0.785398, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Parts/Body/Legs/Right Leg/Upper Leg/Joint:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-0.785398, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_babj8"]
-resource_name = "ready"
-length = 0.5
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Parts/Body/Arms/Left Arm/Upper Arm/Joint:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.785398, -0.25, 0, 0.25, 0, -0.785398, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-
-[sub_resource type="Animation" id="Animation_3acft"]
-resource_name = "rest"
-
-[sub_resource type="Animation" id="Animation_kcwam"]
-resource_name = "stand"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Parts/Body/Legs/Left Leg:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.785398, -0.25, 0, 0.25, 0, 1.22173, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Parts/Body/Legs/Left Leg/Upper Leg/Joint:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.785398, -0.25, 0, 0.25, 0, 0.349066, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Parts/Body/Legs/Right Leg:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-0.785398, -0.25, 0, 0.25, 0, -1.22173, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Parts/Body/Legs/Right Leg/Upper Leg/Joint:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-0.785398, -0.25, 0, 0.25, 0, -0.349066, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-
-[sub_resource type="Animation" id="Animation_eejat"]
-resource_name = "strike"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Parts/Body/Arms/Left Arm/Upper Arm/Joint:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-0.785398, -0.25, 0, 0.25, 0, -2.00713, -0.25, 0, 0.25, 0, 0.261799, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p5o4s"]
-_data = {
-"RESET": SubResource("Animation_dsard"),
-"ready": SubResource("Animation_babj8"),
-"rest": SubResource("Animation_3acft"),
-"stand": SubResource("Animation_kcwam"),
-"strike": SubResource("Animation_eejat")
-}
+[ext_resource type="PackedScene" uid="uid://ch0qj8nwrm4ye" path="res://Scenes/Dude/dude_head.tscn" id="2_hke42"]
+[ext_resource type="PackedScene" uid="uid://cbtqb7v1bt085" path="res://Scenes/Dude/dude_body.tscn" id="3_03oy2"]
+[ext_resource type="PackedScene" uid="uid://bv030wx4seset" path="res://Scenes/Dude/dude_limb.tscn" id="4_ndhvi"]
 
 [node name="Dude" type="CharacterBody2D"]
 script = ExtResource("1_auuxa")
 
-[node name="Shape" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 100)
-shape = SubResource("CapsuleShape2D_1whg0")
+[node name="Model" type="Node2D" parent="."]
+position = Vector2(310, 128)
 
-[node name="Parts" type="Node2D" parent="."]
+[node name="Head" parent="Model" instance=ExtResource("2_hke42")]
+position = Vector2(0, -1)
 
-[node name="Neck" type="Node2D" parent="Parts"]
-position = Vector2(0, 20)
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_a53pn")
+[node name="Body" parent="Model/Head" instance=ExtResource("3_03oy2")]
+position = Vector2(0, 50)
 
-[node name="Head" type="Node2D" parent="Parts/Neck"]
-position = Vector2(0, -20)
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_ejd40")
+[node name="Left Upper Arm" parent="Model/Head/Body" instance=ExtResource("4_ndhvi")]
+position = Vector2(0, 87.5)
 
-[node name="Body" type="Node2D" parent="Parts"]
-position = Vector2(0, 20)
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_wnadc")
+[node name="Left Lower Arm" parent="Model/Head/Body/Left Upper Arm" instance=ExtResource("4_ndhvi")]
+position = Vector2(-75, 0)
 
-[node name="Arms" type="Node2D" parent="Parts/Body"]
-position = Vector2(0, 30)
+[node name="Right Upper Arm" parent="Model/Head/Body" instance=ExtResource("4_ndhvi")]
+position = Vector2(0, 87.5)
+LimbSide = 1
 
-[node name="Left Arm" type="Node2D" parent="Parts/Body/Arms"]
-rotation = 0.785398
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_d4u20")
+[node name="Right Lower Arm" parent="Model/Head/Body/Right Upper Arm" instance=ExtResource("4_ndhvi")]
+position = Vector2(75, 0)
+LimbSide = 1
 
-[node name="Upper Arm" type="Node2D" parent="Parts/Body/Arms/Left Arm"]
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_y8b8l")
+[node name="Left Upper Leg" parent="Model/Head/Body" instance=ExtResource("4_ndhvi")]
+position = Vector2(0, 350)
+Length = 125.0
+LimbType = 1
 
-[node name="Joint" type="Node2D" parent="Parts/Body/Arms/Left Arm/Upper Arm"]
-position = Vector2(40, 0)
-rotation = 0.785398
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_qfgs8")
+[node name="Left Lower Leg" parent="Model/Head/Body/Left Upper Leg" instance=ExtResource("4_ndhvi")]
+position = Vector2(-100, 0)
+Length = 125.0
+LimbType = 1
 
-[node name="Lower Arm" type="Node2D" parent="Parts/Body/Arms/Left Arm/Upper Arm/Joint"]
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_3le4i")
+[node name="Right Upper Leg" parent="Model/Head/Body" instance=ExtResource("4_ndhvi")]
+position = Vector2(0, 350)
+Length = 125.0
+LimbSide = 1
+LimbType = 1
 
-[node name="Hand" type="Node2D" parent="Parts/Body/Arms/Left Arm/Upper Arm/Joint/Lower Arm"]
-position = Vector2(35, 0)
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_2dh1f")
-
-[node name="Sword" parent="Parts/Body/Arms/Left Arm/Upper Arm/Joint/Lower Arm/Hand" instance=ExtResource("5_227js")]
-
-[node name="Right Arm" type="Node2D" parent="Parts/Body/Arms"]
-rotation = -0.785398
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_bxspk")
-
-[node name="Upper Arm" type="Node2D" parent="Parts/Body/Arms/Right Arm"]
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_d0cg8")
-
-[node name="Joint" type="Node2D" parent="Parts/Body/Arms/Right Arm/Upper Arm"]
-position = Vector2(-40, 0)
-rotation = -0.785398
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_ek82g")
-
-[node name="Lower Arm" type="Node2D" parent="Parts/Body/Arms/Right Arm/Upper Arm/Joint"]
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_rhgn3")
-
-[node name="Hand" type="Node2D" parent="Parts/Body/Arms/Right Arm/Upper Arm/Joint/Lower Arm"]
-position = Vector2(-35, 0)
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_gbit6")
-
-[node name="Legs" type="Node2D" parent="Parts/Body"]
-position = Vector2(0, 100)
-
-[node name="Left Leg" type="Node2D" parent="Parts/Body/Legs"]
-rotation = 0.785398
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_o2j5w")
-
-[node name="Upper Leg" type="Node2D" parent="Parts/Body/Legs/Left Leg"]
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_iev2v")
-
-[node name="Joint" type="Node2D" parent="Parts/Body/Legs/Left Leg/Upper Leg"]
-position = Vector2(50, 0)
-rotation = 0.785398
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_or1nr")
-
-[node name="Lower Leg" type="Node2D" parent="Parts/Body/Legs/Left Leg/Upper Leg/Joint"]
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_7xhk5")
-
-[node name="Foot" type="Node2D" parent="Parts/Body/Legs/Left Leg/Upper Leg/Joint/Lower Leg"]
-position = Vector2(50, 0)
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_615p8")
-
-[node name="Right Leg" type="Node2D" parent="Parts/Body/Legs"]
-rotation = -0.785398
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_x1s5s")
-
-[node name="Upper Leg" type="Node2D" parent="Parts/Body/Legs/Right Leg"]
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_ppt68")
-
-[node name="Joint" type="Node2D" parent="Parts/Body/Legs/Right Leg/Upper Leg"]
-position = Vector2(-50, 0)
-rotation = -0.785398
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_dpqvo")
-
-[node name="Lower Leg" type="Node2D" parent="Parts/Body/Legs/Right Leg/Upper Leg/Joint"]
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_m338c")
-
-[node name="Foot" type="Node2D" parent="Parts/Body/Legs/Right Leg/Upper Leg/Joint/Lower Leg"]
-position = Vector2(-50, 0)
-script = ExtResource("2_aqj5o")
-Shape = SubResource("Resource_ebrv1")
-
-[node name="Animator" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_p5o4s")
-}
-
-[node name="Focus Camera" type="Camera2D" parent="."]
+[node name="Right Lower Leg" parent="Model/Head/Body/Right Upper Leg" instance=ExtResource("4_ndhvi")]
+position = Vector2(100, 0)
+Length = 125.0
+LimbSide = 1
+LimbType = 1

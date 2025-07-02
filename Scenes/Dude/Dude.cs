@@ -1,3 +1,4 @@
+using DudeBattler.Scripts;
 using Godot;
 using System.Threading.Tasks;
 
@@ -18,16 +19,10 @@ public partial class Dude : Node2D
 
 	public override async void _Ready()
 	{
-		await StartupAnimations();
-	}
-
-	private async Task StartupAnimations()
-	{
-		Task[] tasks = [];
-		Animator.Play("stand");
-		await Animator.ToSignal(Animator, AnimationMixer.SignalName.AnimationFinished);
-		Animator.Play("ready");
-		await Animator.ToSignal(Animator, AnimationMixer.SignalName.AnimationFinished);
+		foreach (var part in BodyParts)
+		{
+			await part.AnimateDrawing(0.2f);
+		}
 	}
 
 	#endregion
@@ -42,53 +37,29 @@ public partial class Dude : Node2D
 	public AnimationPlayer Animator => GetNode<AnimationPlayer>("Animator");
 
 	#region Body Parts
-	public Shape2d Head => GetNode<Shape2d>("Parts/Neck/Head");
-	public Shape2d Neck => GetNode<Shape2d>("Parts/Neck");
-	public Shape2d Body => GetNode<Shape2d>("Parts/Body");
-	// Arms
-	public Shape2d Arms => GetNode<Shape2d>("Parts/Body/Arms");
-	public Shape2d LeftArm => GetNode<Shape2d>("Parts/Body/Arms/Left Arm");
-	public Shape2d LeftUpperArm => GetNode<Shape2d>("Parts/Body/Arms/Left Arm/Upper Arm");
-	public Shape2d LeftLowerArm => GetNode<Shape2d>("Parts/Body/Arms/Left Arm/Lower Arm");
-	public Shape2d LeftHand => GetNode<Shape2d>("Parts/Body/Arms/Left Arm/Lower Arm/Hand");
-	public Shape2d RightArm => GetNode<Shape2d>("Parts/Body/Arms/Right Arm");
-	public Shape2d RightUpperArm => GetNode<Shape2d>("Parts/Body/Arms/Right Arm/Upper Arm");
-	public Shape2d RightLowerArm => GetNode<Shape2d>("Parts/Body/Arms/Right Arm/Lower Arm");
-	public Shape2d RightHand => GetNode<Shape2d>("Parts/Body/Arms/Right Arm/Lower Arm/Hand");
-	// Legs
-	public Shape2d Legs => GetNode<Shape2d>("Parts/Body/Legs");
-	public Shape2d LeftLeg => GetNode<Shape2d>("Parts/Body/Legs/Left Leg");
-	public Shape2d LeftUpperLeg => GetNode<Shape2d>("Parts/Body/Legs/Left Leg/Upper Leg");
-	public Shape2d LeftLowerLeg => GetNode<Shape2d>("Parts/Body/Legs/Left Leg/Lower Leg");
-	public Shape2d LeftFoot => GetNode<Shape2d>("Parts/Body/Legs/Left Leg/Lower Leg/Foot");
-	public Shape2d RightLeg => GetNode<Shape2d>("Parts/Body/Legs/Right Leg");
-	public Shape2d RightUpperLeg => GetNode<Shape2d>("Parts/Body/Legs/Right Leg/Upper Leg");
-	public Shape2d RightLowerLeg => GetNode<Shape2d>("Parts/Body/Legs/Right Leg/Lower Leg");
-	public Shape2d RightFoot => GetNode<Shape2d>("Parts/Body/Legs/Right Leg/Lower Leg/Foot");
+	public DudeHead Head => GetNode<DudeHead>("Model/Head");
+	public DudeBody Body => GetNode<DudeBody>("Model/Head/Body");
+	public DudeLimb LeftUpperArm => GetNode<DudeLimb>("Model/Head/Body/Left Upper Arm");
+	public DudeLimb LeftLowerArmr => GetNode<DudeLimb>("Model/Head/Body/Left Upper Arm/Left Lower Arm");
+	public DudeLimb RightUpperArm => GetNode<DudeLimb>("Model/Head/Body/Right Upper Arm");
+	public DudeLimb RightLowerArm => GetNode<DudeLimb>("Model/Head/Body/Right Upper Arm/Right Lower Arm");
+	public DudeLimb LeftUpperLeg => GetNode<DudeLimb>("Model/Head/Body/Left Upper Leg");
+	public DudeLimb LeftLowerLeg => GetNode<DudeLimb>("Model/Head/Body/Left Upper Leg/Left Lower Leg");
+	public DudeLimb RightUpperLeg => GetNode<DudeLimb>("Model/Head/Body/Right Upper Leg");
+	public DudeLimb RightLowerLeg => GetNode<DudeLimb>("Model/Head/Body/Right Upper Leg/Right Lower Leg");
 
-	public Shape2d[] BodyParts =>
+	public BodyPart[] BodyParts =>
 	[
 		Head,
-		Neck,
 		Body,
-		Arms,
-		LeftArm,
 		LeftUpperArm,
-		LeftLowerArm,
-		LeftHand,
-		RightArm,
+		LeftLowerArmr,
 		RightUpperArm,
 		RightLowerArm,
-		RightHand,
-		Legs,
-		LeftLeg,
 		LeftUpperLeg,
 		LeftLowerLeg,
-		LeftFoot,
-		RightLeg,
 		RightUpperLeg,
-		RightLowerLeg,
-		RightFoot
+		RightLowerLeg
 	];
 	#endregion
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbtqb7v1bt085"]
+
+[ext_resource type="Script" path="res://Scenes/Dude/DudeBody.cs" id="1_fhnmp"]
+
+[node name="Dude Body" type="Node2D"]
+script = ExtResource("1_fhnmp")

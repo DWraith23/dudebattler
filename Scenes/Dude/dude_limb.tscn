@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv030wx4seset"]
+
+[ext_resource type="Script" path="res://Scenes/Dude/DudeLimb.cs" id="1_3pgnc"]
+
+[node name="Dude Limb" type="Node2D"]
+script = ExtResource("1_3pgnc")
+Length = 75.0
