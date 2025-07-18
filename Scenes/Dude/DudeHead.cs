@@ -97,7 +97,6 @@ public partial class DudeHead : BodyPart
         if (Drawn)
         {
             DrawCircle(Vector2.Zero, Radius, Color, Filled, LineWidth);
-            GD.Print("Draw");
         }
 
     }
