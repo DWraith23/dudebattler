@@ -2,7 +2,7 @@ using dudebattler.Resources.Shape2D;
 using Godot;
 using System;
 
-namespace DudeBattler.Scenes.Dude;
+namespace DudeBattler.Scenes.Components;
 
 [Tool, GlobalClass]
 /// <summary>
@@ -11,7 +11,7 @@ namespace DudeBattler.Scenes.Dude;
 /// </summary>
 public partial class Shape2d : Node2D
 {
-	private static string ScenePath => "res://Scenes/Dude/shape_2d.tscn";
+	private static string ScenePath => "res://Scenes/Components/shape_2d.tscn";
 	public static Shape2d CreateInstance()
 	{
 		var instance = GD.Load<PackedScene>(ScenePath).Instantiate<Shape2d>();

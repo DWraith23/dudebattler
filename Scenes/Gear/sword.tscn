@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cpaoq7cri63pn"]
 
-[ext_resource type="Script" path="res://Scenes/Dude/Shape2d.cs" id="1_55cks"]
+[ext_resource type="Script" path="res://Scenes/Components/Shape2d.cs" id="1_sf4yu"]
 [ext_resource type="Script" path="res://Resources/Shape2D/LineData.cs" id="2_0oncs"]
 [ext_resource type="Script" path="res://Resources/Shape2D/CircleData.cs" id="3_lt0by"]
 
@@ -41,19 +41,19 @@ HasCollision = true
 [node name="Sword" type="Node2D"]
 
 [node name="Hilt" type="Node2D" parent="."]
-script = ExtResource("1_55cks")
+script = ExtResource("1_sf4yu")
 Shape = SubResource("Resource_2iw6l")
 
 [node name="Pommel" type="Node2D" parent="Hilt"]
 position = Vector2(0, 10)
-script = ExtResource("1_55cks")
+script = ExtResource("1_sf4yu")
 Shape = SubResource("Resource_be58a")
 
 [node name="Guard" type="Node2D" parent="Hilt"]
 position = Vector2(0, -10)
-script = ExtResource("1_55cks")
+script = ExtResource("1_sf4yu")
 Shape = SubResource("Resource_c16um")
 
 [node name="Blade" type="Node2D" parent="Hilt/Guard"]
-script = ExtResource("1_55cks")
+script = ExtResource("1_sf4yu")
 Shape = SubResource("Resource_lvk4r")
