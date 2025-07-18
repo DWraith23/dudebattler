@@ -214,7 +214,7 @@ public partial class DudeLimb : BodyPart
         area.AddChild(collider, false, InternalMode.Back);
     }
 
-    private void Reposition()
+    public override void Reposition()
     {
         if (BodyConnection is DudeBody body)
         {

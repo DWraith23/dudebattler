@@ -17,12 +17,50 @@ public partial class Dude : Node2D
 		return instance;
 	}
 
+	private bool _drawn = false;
+	[Export]
+	public bool Drawn
+	{
+		get => _drawn;
+		set
+		{
+			if (_drawn == value) return;
+			_drawn = value;
+			foreach (var part in BodyParts)
+			{
+				part.Drawn = value;
+			}
+		}
+	}
+
+	private bool _usesCollision = true;
+	[Export]
+	public bool UsesCollision
+	{
+		get => _usesCollision;
+		set
+		{
+			if (_usesCollision == value) return;
+			_usesCollision = value;
+			foreach (var part in BodyParts)
+			{
+				if (!part.HasNode("Area") || part.Area == null) continue;
+				part.Area.Visible = value;
+				part.Area.Monitorable = value;
+				part.Area.Monitoring = value;
+			}
+		}
+	}
+
 	public override async void _Ready()
 	{
-		foreach (var part in BodyParts)
+		if (Engine.IsEditorHint())
 		{
-			await part.AnimateDrawing(0.2f);
+
+			return;
 		}
+
+		if (!Drawn) await AnimateDrawing(0.1f);
 	}
 
 	#endregion
@@ -38,22 +76,24 @@ public partial class Dude : Node2D
 
 	#region Body Parts
 	public DudeHead Head => GetNode<DudeHead>("Model/Head");
-	public DudeBody Body => GetNode<DudeBody>("Model/Head/Body");
-	public DudeLimb LeftUpperArm => GetNode<DudeLimb>("Model/Head/Body/Left Upper Arm");
-	public DudeLimb LeftLowerArmr => GetNode<DudeLimb>("Model/Head/Body/Left Upper Arm/Left Lower Arm");
-	public DudeLimb RightUpperArm => GetNode<DudeLimb>("Model/Head/Body/Right Upper Arm");
-	public DudeLimb RightLowerArm => GetNode<DudeLimb>("Model/Head/Body/Right Upper Arm/Right Lower Arm");
-	public DudeLimb LeftUpperLeg => GetNode<DudeLimb>("Model/Head/Body/Left Upper Leg");
-	public DudeLimb LeftLowerLeg => GetNode<DudeLimb>("Model/Head/Body/Left Upper Leg/Left Lower Leg");
-	public DudeLimb RightUpperLeg => GetNode<DudeLimb>("Model/Head/Body/Right Upper Leg");
-	public DudeLimb RightLowerLeg => GetNode<DudeLimb>("Model/Head/Body/Right Upper Leg/Right Lower Leg");
+	public DudeBody Body => Head.GetNode<DudeBody>("Body");
+	public DudeLimb LeftUpperArm => Body.GetNode<DudeLimb>("Left Upper Arm");
+	public DudeLimb LeftLowerArm => LeftUpperArm.GetNode<DudeLimb>("Left Lower Arm");
+	public Marker2D LeftHand => LeftLowerArm.GetNode<Marker2D>("Hand");
+	public DudeLimb RightUpperArm => Body.GetNode<DudeLimb>("Right Upper Arm");
+	public DudeLimb RightLowerArm => RightUpperArm.GetNode<DudeLimb>("Right Lower Arm");
+	public Marker2D RightHand => RightLowerArm.GetNode<Marker2D>("Hand");
+	public DudeLimb LeftUpperLeg => Body.GetNode<DudeLimb>("Left Upper Leg");
+	public DudeLimb LeftLowerLeg => LeftUpperLeg.GetNode<DudeLimb>("Left Lower Leg");
+	public DudeLimb RightUpperLeg => Body.GetNode<DudeLimb>("Right Upper Leg");
+	public DudeLimb RightLowerLeg => RightUpperLeg.GetNode<DudeLimb>("Right Lower Leg");
 
 	public BodyPart[] BodyParts =>
 	[
 		Head,
 		Body,
 		LeftUpperArm,
-		LeftLowerArmr,
+		LeftLowerArm,
 		RightUpperArm,
 		RightLowerArm,
 		LeftUpperLeg,
@@ -65,4 +105,17 @@ public partial class Dude : Node2D
 
 
 	#endregion
-}
+
+	#region Methods
+
+	public async Task AnimateDrawing(float speed)
+	{
+		foreach (var part in BodyParts)
+		{
+			await part.AnimateDrawing(speed);
+		}
+		Drawn = true;
+	}
+
+	#endregion
+	}

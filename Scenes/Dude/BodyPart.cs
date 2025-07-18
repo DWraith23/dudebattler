@@ -28,4 +28,8 @@ public abstract partial class BodyPart : Node2D
     }
     protected bool IsDrawing { get; set; } = false;
     public abstract Task AnimateDrawing(float speed);
+    public virtual void Reposition()
+    {
+        return;
+    }
 }

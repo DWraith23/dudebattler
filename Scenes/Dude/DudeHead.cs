@@ -99,7 +99,7 @@ public partial class DudeHead : BodyPart
             DrawCircle(Vector2.Zero, Radius, Color, Filled, LineWidth);
             GD.Print("Draw");
         }
-        
+
     }
 
     public override async Task AnimateDrawing(float speed)
@@ -134,6 +134,4 @@ public partial class DudeHead : BodyPart
         };
         area.AddChild(collider, false, InternalMode.Back);
     }
-
-
 }

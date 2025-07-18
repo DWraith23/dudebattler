@@ -1,6 +1,7 @@
 using DudeBattler.Scripts;
 using Godot;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 
@@ -25,13 +26,17 @@ public partial class DudeBody : BodyPart
         {
             if (_height == value) return;
             _height = value;
-            QueueRedraw();
-            if (Shape is RectangleShape2D rect)
+            foreach (var child in GetChildren().OfType<BodyPart>())
             {
-                rect.Size = new(LineWidth, value);
+                child.Reposition();
             }
-            if (Collider != null)
+            QueueRedraw();
+            if (HasNode("Area/Collider") && Collider != null)
             {
+                if (Shape is RectangleShape2D rect)
+                {
+                    rect.Size = new(LineWidth, value);
+                }
                 Collider.Position = new(0, value / 2);
             }
         }
