@@ -213,30 +213,25 @@ _data = {
 [node name="Model" type="Node2D"]
 position = Vector2(0, -300)
 script = ExtResource("1_jrjna")
-Drawn = true
 UsesCollision = false
 
 [node name="Head" parent="." instance=ExtResource("1_ajjwl")]
 position = Vector2(0, -1)
 LineWidth = 7.0
-Drawn = true
 
 [node name="Body" parent="Head" instance=ExtResource("2_kc4lg")]
 position = Vector2(0, 50)
 Height = 250.0
-Drawn = true
 
 [node name="Left Upper Arm" parent="Head/Body" instance=ExtResource("3_iiuig")]
 position = Vector2(0, 62.5)
 Length = 100.0
 LineWidth = 8.0
-Drawn = true
 
 [node name="Left Lower Arm" parent="Head/Body/Left Upper Arm" instance=ExtResource("3_iiuig")]
 position = Vector2(-100, 0)
 Length = 100.0
 LineWidth = 8.0
-Drawn = true
 
 [node name="Hand" type="Marker2D" parent="Head/Body/Left Upper Arm/Left Lower Arm"]
 position = Vector2(-100, 0)
@@ -246,14 +241,12 @@ position = Vector2(0, 62.5)
 Length = 100.0
 LineWidth = 8.0
 LimbSide = 1
-Drawn = true
 
 [node name="Right Lower Arm" parent="Head/Body/Right Upper Arm" instance=ExtResource("3_iiuig")]
 position = Vector2(100, 0)
 Length = 100.0
 LineWidth = 8.0
 LimbSide = 1
-Drawn = true
 
 [node name="Hand" type="Marker2D" parent="Head/Body/Right Upper Arm/Right Lower Arm"]
 position = Vector2(100, 0)
@@ -263,7 +256,6 @@ position = Vector2(0, 250)
 Length = 125.0
 LineWidth = 9.0
 LimbType = 1
-Drawn = true
 
 [node name="Left Lower Leg" parent="Head/Body/Left Upper Leg" instance=ExtResource("3_iiuig")]
 position = Vector2(-125, 0)
@@ -271,7 +263,6 @@ Length = 125.0
 LineWidth = 9.0
 LimbOrder = 1
 LimbType = 1
-Drawn = true
 
 [node name="Right Upper Leg" parent="Head/Body" instance=ExtResource("3_iiuig")]
 position = Vector2(0, 250)
@@ -279,7 +270,6 @@ Length = 125.0
 LineWidth = 9.0
 LimbSide = 1
 LimbType = 1
-Drawn = true
 
 [node name="Right Lower Leg" parent="Head/Body/Right Upper Leg" instance=ExtResource("3_iiuig")]
 position = Vector2(125, 0)
@@ -288,7 +278,6 @@ LineWidth = 9.0
 LimbOrder = 1
 LimbSide = 1
 LimbType = 1
-Drawn = true
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 libraries = {
