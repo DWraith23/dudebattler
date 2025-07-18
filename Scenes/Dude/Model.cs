@@ -76,7 +76,7 @@ public partial class Model : Node2D
         }
     }
 
-    private bool _usesCollision = true;
+    private bool _usesCollision = false;
     [Export]
     public bool UsesCollision
     {

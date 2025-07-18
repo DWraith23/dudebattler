@@ -22,6 +22,18 @@ public partial class Dude : Node2D
 
 	#region Properties, Fields, and Nodes
 
+	private bool _loadsDrawn = false;
+	[Export]
+	public bool LoadsDrawn
+	{
+		get => _loadsDrawn;
+		set
+		{
+			if (_loadsDrawn == value) return;
+			_loadsDrawn = value;
+			Model.Drawn = value;
+		}
+	}
 	public Model Model => GetNode<Model>("Model");
 
 
