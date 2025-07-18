@@ -17,105 +17,13 @@ public partial class Dude : Node2D
 		return instance;
 	}
 
-	private bool _drawn = false;
-	[Export]
-	public bool Drawn
-	{
-		get => _drawn;
-		set
-		{
-			if (_drawn == value) return;
-			_drawn = value;
-			foreach (var part in BodyParts)
-			{
-				part.Drawn = value;
-			}
-		}
-	}
-
-	private bool _usesCollision = true;
-	[Export]
-	public bool UsesCollision
-	{
-		get => _usesCollision;
-		set
-		{
-			if (_usesCollision == value) return;
-			_usesCollision = value;
-			foreach (var part in BodyParts)
-			{
-				if (!part.HasNode("Area") || part.Area == null) continue;
-				part.Area.Visible = value;
-				part.Area.Monitorable = value;
-				part.Area.Monitoring = value;
-			}
-		}
-	}
-
-	public override async void _Ready()
-	{
-		if (Engine.IsEditorHint())
-		{
-
-			return;
-		}
-
-		if (!Drawn) await AnimateDrawing(0.1f);
-	}
 
 	#endregion
 
-	#region Signals
+	#region Properties, Fields, and Nodes
+
+	public Model Model => GetNode<Model>("Model");
 
 
 	#endregion
-
-	#region Properties and Fields
-
-	public AnimationPlayer Animator => GetNode<AnimationPlayer>("Animator");
-
-	#region Body Parts
-	public DudeHead Head => GetNode<DudeHead>("Model/Head");
-	public DudeBody Body => Head.GetNode<DudeBody>("Body");
-	public DudeLimb LeftUpperArm => Body.GetNode<DudeLimb>("Left Upper Arm");
-	public DudeLimb LeftLowerArm => LeftUpperArm.GetNode<DudeLimb>("Left Lower Arm");
-	public Marker2D LeftHand => LeftLowerArm.GetNode<Marker2D>("Hand");
-	public DudeLimb RightUpperArm => Body.GetNode<DudeLimb>("Right Upper Arm");
-	public DudeLimb RightLowerArm => RightUpperArm.GetNode<DudeLimb>("Right Lower Arm");
-	public Marker2D RightHand => RightLowerArm.GetNode<Marker2D>("Hand");
-	public DudeLimb LeftUpperLeg => Body.GetNode<DudeLimb>("Left Upper Leg");
-	public DudeLimb LeftLowerLeg => LeftUpperLeg.GetNode<DudeLimb>("Left Lower Leg");
-	public DudeLimb RightUpperLeg => Body.GetNode<DudeLimb>("Right Upper Leg");
-	public DudeLimb RightLowerLeg => RightUpperLeg.GetNode<DudeLimb>("Right Lower Leg");
-
-	public BodyPart[] BodyParts =>
-	[
-		Head,
-		Body,
-		LeftUpperArm,
-		LeftLowerArm,
-		RightUpperArm,
-		RightLowerArm,
-		LeftUpperLeg,
-		LeftLowerLeg,
-		RightUpperLeg,
-		RightLowerLeg
-	];
-	#endregion
-
-
-	#endregion
-
-	#region Methods
-
-	public async Task AnimateDrawing(float speed)
-	{
-		foreach (var part in BodyParts)
-		{
-			await part.AnimateDrawing(speed);
-		}
-		Drawn = true;
-	}
-
-	#endregion
-	}
+}
