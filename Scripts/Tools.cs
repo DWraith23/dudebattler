@@ -17,7 +17,14 @@ public static class Tools
     /// </summary>
     public static Random Rand => new();
 
-
+    /// <summary>
+    /// Moves all properties of a node that are affected by a specific animation to the start of the animation.
+    /// </summary>
+    /// <param name="node"></param>
+    /// <param name="animator"></param>
+    /// <param name="animationName"></param>
+    /// <param name="duration"></param>
+    /// <returns></returns>
     public static async Task TweenToAnimationStart(Node node, AnimationPlayer animator, string animationName, float duration)
     {
         if (animator.HasAnimation(animationName))

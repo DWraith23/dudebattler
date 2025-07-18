@@ -4,3 +4,9 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sox3k")
+
+[node name="Scenes" type="CanvasLayer" parent="."]
+
+[node name="Menus" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true

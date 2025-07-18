@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgp24jjmh5g1b"]
+
+[ext_resource type="PackedScene" uid="uid://br2rww5fdx5qt" path="res://Scenes/Dude/dude.tscn" id="1_dpmn7"]
+[ext_resource type="Script" path="res://Scenes/Menus/LoadingScreen.cs" id="1_ynhno"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18pth"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bet1k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x60f"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qrxl"]
+bg_color = Color(0.386218, 0.694721, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Loading Screen" type="Control"]
+z_index = 999
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ynhno")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_18pth")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bet1k")
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5x60f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4qrxl")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Dude" parent="CenterContainer/Control" instance=ExtResource("1_dpmn7")]
+position = Vector2(0, 110)
+LoadsDrawn = true
+DudeColor = Color(1, 1, 1, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.0
+offset_right = 149.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Loading..."

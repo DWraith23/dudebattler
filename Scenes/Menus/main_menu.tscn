@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl4b5uwqt3ynw"]
+
+[ext_resource type="PackedScene" uid="uid://rc35441gx8jq" path="res://Scenes/BaseScenes/menu_base.tscn" id="1_66oxa"]
+[ext_resource type="Script" path="res://Scenes/Menus/MainMenu.cs" id="2_m0iy7"]
+
+[node name="Main Menu" instance=ExtResource("1_66oxa")]
+script = ExtResource("2_m0iy7")
+
+[node name="Panel" type="PanelContainer" parent="Centerer" index="0"]
+layout_mode = 2
+
+[node name="Contents" type="VBoxContainer" parent="Centerer/Panel" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="Centerer/Panel/Contents" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Dude Battler"
+
+[node name="Spacer" type="Control" parent="Centerer/Panel/Contents" index="1"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="New Game" type="Button" parent="Centerer/Panel/Contents" index="2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "New Game"
+
+[node name="Continue" type="Button" parent="Centerer/Panel/Contents" index="3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "Continue"
+
+[node name="Load Game" type="Button" parent="Centerer/Panel/Contents" index="4"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Load Game"
+
+[node name="Options" type="Button" parent="Centerer/Panel/Contents" index="5"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options"
+
+[node name="Credits" type="Button" parent="Centerer/Panel/Contents" index="6"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Credits"
+
+[node name="Exit Game" type="Button" parent="Centerer/Panel/Contents" index="7"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit Game"
