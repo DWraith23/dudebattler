@@ -1,4 +1,4 @@
-using dudebattler.Resources.Shape2D;
+using DudeBattler.Resources.Shape2D;
 using Godot;
 using System;
 

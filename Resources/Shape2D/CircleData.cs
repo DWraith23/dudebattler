@@ -1,6 +1,6 @@
 using Godot;
 
-namespace dudebattler.Resources.Shape2D;
+namespace DudeBattler.Resources.Shape2D;
 
 [Tool, GlobalClass]
 public partial class CircleData : Shape2DData
