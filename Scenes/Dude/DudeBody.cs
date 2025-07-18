@@ -44,7 +44,7 @@ public partial class DudeBody : BodyPart
 
     private Color _color = Colors.Black;
     [Export]
-    public Color Color
+    public override Color Color
     {
         get => _color;
         set

@@ -32,7 +32,7 @@ public partial class DudeHead : BodyPart
     }
 
     private Color _color = Colors.Black;
-    [Export] public Color Color
+    [Export] public override Color Color
     {
         get => _color;
         set
