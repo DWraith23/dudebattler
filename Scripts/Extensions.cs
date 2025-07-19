@@ -25,11 +25,69 @@ public static class Extensions
         if (GodotObject.IsInstanceValid(node)) node.QueueFree();
     }
 
-    public static void EmitSignalLogged(this Resource? resource, StringName signal, params Variant[] args)
+    /// <summary>
+    /// Deletes all of a node's children.
+    /// </summary>
+    /// <param name="node"></param>
+    public static void FreeChildren(this Node? node)
+    {
+        if (node == null) return;
+        foreach (var child in node.GetChildren())
+        {
+            child.Delete();
+        }
+    }
+
+    /// <summary>
+    /// Returns 'true' if a node is non-null, in memory, not queued for deletion, and inside the tree.  Otherwise returns false.
+    /// </summary>
+    /// <param name="node"></param>
+    /// <returns></returns>
+    public static bool IsValid(this Node? node)
+    {
+        if (node == null) return false;
+        if (!GodotObject.IsInstanceValid(node)) return false;
+        if (node.IsQueuedForDeletion()) return false;
+        if (!node.IsInsideTree()) return false;
+        return true;
+    }
+
+    /// <summary>
+    /// A simple extension to log signals being emitted.
+    /// </summary>
+    /// <param name="resource"></param>
+    /// <param name="signal"></param>
+    /// <param name="args"></param>
+    public static void EmitSignalLogged(this GodotObject? resource, StringName signal, params Variant[] args)
     {
         if (resource == null) return;
         resource.EmitSignal(signal, args);
         GD.PrintRich($"[color=light_blue]{resource} emitted signal: {signal} with args {string.Join(", ", args)}");
+    }
+
+    /// <summary>
+    /// Simplified version of EmitSignalLogged which explicitly emits the Changed signal for Resources.
+    /// </summary>
+    /// <param name="resource"></param>
+    public static void EmitChangedLogged(this Resource? resource)
+    {
+        if (resource == null) return;
+        resource.EmitChanged();
+        GD.PrintRich($"[color=light_blue]{resource} emitted Changed signal.");
+    }
+
+    /// <summary>
+    /// Duplicates a resource of a given type, T.  Returns the explicit type, not the generic Resource type.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="resource"></param>
+    /// <param name="deep"></param>
+    /// <returns></returns>
+    public static T? Duplicate<T>(this Resource? resource, bool deep = false) where T : Resource
+    {
+        if (resource == null) return null;
+        var clone = resource.Duplicate(deep) as T;
+        return clone;
     }
 
     #endregion
