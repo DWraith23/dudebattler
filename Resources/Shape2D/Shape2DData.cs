@@ -17,6 +17,8 @@ public partial class Shape2DData : Resource
         Circle,
         Rectangle,
         Line,
+        Arc,
+        
     }
 
     public virtual ShapeType Type { get; } = ShapeType.Empty;

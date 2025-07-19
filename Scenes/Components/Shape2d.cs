@@ -69,6 +69,20 @@ public partial class Shape2d : Node2D
 				circle.Antialiased
 				);
 		}
+		else if (Shape is ArcData arc)
+		{
+			var start = Mathf.DegToRad(arc.StartAngle);
+			var end = Mathf.DegToRad(arc.EndAngle);
+			DrawArc(arc.Position,
+				arc.Radius,
+				start,
+				end,
+				arc.PointCount,
+				arc.Color,
+				arc.Width,
+				arc.Antialiased
+				);
+		}
 	}
 
 	private void CollisionChanged(bool hasCollision)
