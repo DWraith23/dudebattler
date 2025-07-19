@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm25pvt5v8aqw"]
+
+[ext_resource type="Script" path="res://Scenes/Dude/Face.cs" id="1_3d2b3"]
+
+[node name="Face" type="Node2D"]
+script = ExtResource("1_3d2b3")
+
+[node name="Left Eye" type="Marker2D" parent="."]
+position = Vector2(-25, -20)
+gizmo_extents = 1.0
+
+[node name="Right Eye" type="Marker2D" parent="."]
+position = Vector2(25, -20)
+gizmo_extents = 1.0
+
+[node name="Mouth Start" type="Marker2D" parent="."]
+position = Vector2(-30, 10)
+gizmo_extents = 1.0
+
+[node name="Mouth End" type="Marker2D" parent="."]
+position = Vector2(30, 10)
+gizmo_extents = 1.0

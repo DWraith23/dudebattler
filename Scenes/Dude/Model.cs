@@ -19,6 +19,13 @@ public partial class Model : Node2D
         }
 
         if (!Drawn) await AnimateDrawing(0.1f);
+        foreach (var part in BodyParts)
+        {
+            if (!part.HasNode("Area") || part.Area == null) continue;
+            part.Area.Visible = UsesCollision;
+            part.Area.Monitorable = UsesCollision;
+            part.Area.Monitoring = UsesCollision;
+        }
     }
 
     #endregion
@@ -34,6 +41,7 @@ public partial class Model : Node2D
 
     #region Body Parts
     public DudeHead Head => GetNode<DudeHead>("Head");
+    public Face Face => Head.GetNode<Face>("Face");
     public DudeBody Body => Head.GetNode<DudeBody>("Body");
     public DudeLimb LeftUpperArm => Body.GetNode<DudeLimb>("Left Upper Arm");
     public DudeLimb LeftLowerArm => LeftUpperArm.GetNode<DudeLimb>("Left Lower Arm");
@@ -57,7 +65,8 @@ public partial class Model : Node2D
         LeftUpperLeg,
         LeftLowerLeg,
         RightUpperLeg,
-        RightLowerLeg
+        RightLowerLeg,
+        Face
     ];
 
     private bool _drawn = false;

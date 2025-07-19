@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqa8g03cnjw73"]
+[gd_scene load_steps=10 format=3 uid="uid://cqa8g03cnjw73"]
 
 [ext_resource type="PackedScene" uid="uid://ch0qj8nwrm4ye" path="res://Scenes/Dude/dude_head.tscn" id="1_ajjwl"]
 [ext_resource type="Script" path="res://Scenes/Dude/Model.cs" id="1_jrjna"]
 [ext_resource type="PackedScene" uid="uid://cbtqb7v1bt085" path="res://Scenes/Dude/dude_body.tscn" id="2_kc4lg"]
 [ext_resource type="PackedScene" uid="uid://bv030wx4seset" path="res://Scenes/Dude/dude_limb.tscn" id="3_iiuig"]
+[ext_resource type="PackedScene" uid="uid://cm25pvt5v8aqw" path="res://Scenes/Dude/face.tscn" id="5_tfjry"]
 
 [sub_resource type="Animation" id="Animation_pbfyd"]
 length = 0.001
@@ -116,6 +117,22 @@ tracks/8/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_16r4e"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
 [sub_resource type="Animation" id="Animation_nv8xh"]
 resource_name = "stand"
 length = 0.5
@@ -216,22 +233,6 @@ tracks/7/keys = {
 "values": [0.0, 0.261799]
 }
 
-[sub_resource type="Animation" id="Animation_16r4e"]
-resource_name = "spin"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -6.28319]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0q8jb"]
 _data = {
 "RESET": SubResource("Animation_pbfyd"),
@@ -240,12 +241,14 @@ _data = {
 }
 
 [node name="Model" type="Node2D"]
-position = Vector2(0, -300)
 script = ExtResource("1_jrjna")
 
 [node name="Head" parent="." instance=ExtResource("1_ajjwl")]
-position = Vector2(0, -1)
+position = Vector2(2, -220)
 LineWidth = 7.0
+
+[node name="Face" parent="Head" instance=ExtResource("5_tfjry")]
+FaceType = 1
 
 [node name="Body" parent="Head" instance=ExtResource("2_kc4lg")]
 position = Vector2(0, 50)
