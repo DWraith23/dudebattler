@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Godot;
 
@@ -10,6 +11,7 @@ namespace DudeBattler.Scripts;
 public static class Extensions
 {
 
+    #region Nodes and Resources
     public static async Task Completed(this Tween tween) => await tween.ToSignal(tween, Tween.SignalName.Finished);
 
     /// <summary>
@@ -30,5 +32,19 @@ public static class Extensions
         GD.PrintRich($"[color=light_blue]{resource} emitted signal: {signal} with args {string.Join(", ", args)}");
     }
 
+    #endregion
+
+
+    #region Numbers
+
+    public static int RoundDown(this double value) => (int)Math.Floor(value);
+    public static int RoundUp(this double value) => (int)Math.Ceiling(value);
+    public static int Round(this double value) => (int)Math.Round(value);
+
+    public static int RoundDown(this float value) => (int)Math.Floor(value);
+    public static int RoundUp(this float value) => (int)Math.Ceiling(value);
+    public static int Round(this float value) => (int)Math.Round(value);
+
+    #endregion
 
 }
