@@ -90,6 +90,13 @@ public static class Extensions
         return clone;
     }
 
+    public static void AdoptChild(this Node? node, Node child)
+    {
+        if (!node.IsValid() || !child.IsValid()) return;
+        child.GetParent().RemoveChild(child);
+        node?.AddChild(child);
+    }
+
     #endregion
 
 
@@ -105,4 +112,18 @@ public static class Extensions
 
     #endregion
 
+
+    #region Events
+
+    public static bool IsMouseInputType(this InputEvent @event, bool left = true, bool pressed = false)
+    {
+        if (@event is not InputEventMouseButton mouse) return false;
+        if (mouse.ButtonMask == MouseButtonMask.Left && !left) return false;
+        if (mouse.ButtonMask == MouseButtonMask.Right && left) return false;
+        if (mouse.Pressed && !pressed) return false;
+        if (!mouse.Pressed && pressed) return false;
+        return true;
+    }
+
+    #endregion
 }

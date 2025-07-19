@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmnqa1wg1vvjh"]
+
+[ext_resource type="PackedScene" uid="uid://cu0uk8vy0wyqp" path="res://Scenes/Components/ResourceIcons/resource_icon.tscn" id="1_v6m24"]
+
+[node name="Icon Mover" type="CenterContainer"]
+use_top_left = true
+
+[node name="ResourceIcon" parent="." instance=ExtResource("1_v6m24")]
+layout_mode = 2
+script = null
