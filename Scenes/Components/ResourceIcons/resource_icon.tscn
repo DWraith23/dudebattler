@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu0uk8vy0wyqp"]
+
+[ext_resource type="Script" path="res://Scenes/Resources/ResourceIcon.cs" id="1_qgcnn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3o370"]
+bg_color = Color(0.6, 0.6, 0.6, 0.372549)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ResourceIcon" type="PanelContainer"]
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_3o370")
+script = ExtResource("1_qgcnn")
+
+[node name="Button" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+mouse_filter = 1
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Attribute Container" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
