@@ -33,10 +33,10 @@ public partial class ResourceIcon : PanelContainer
     }
 
     // Signals for button interactions
-    [Signal] public delegate void ButtonMousedOverEventHandler(DisplayResource resource);
-    [Signal] public delegate void ButtonMousedAwayEventHandler(DisplayResource resource);
-    [Signal] public delegate void ButtonPressedEventHandler(DisplayResource resource);
-    [Signal] public delegate void ButtonRightClickedEventHandler(DisplayResource resource);
+    [Signal] public delegate void ButtonMousedOverEventHandler(ResourceIcon resource);
+    [Signal] public delegate void ButtonMousedAwayEventHandler(ResourceIcon resource);
+    [Signal] public delegate void ButtonPressedEventHandler(ResourceIcon resource);
+    [Signal] public delegate void ButtonRightClickedEventHandler(ResourceIcon resource);
     [Signal] public delegate void ButtonToggledEventHandler(ResourceIcon node);
 
     #region Properties
@@ -359,14 +359,14 @@ public partial class ResourceIcon : PanelContainer
     {
         if (Resource == null) return;
         IsHovered = true;
-        this.EmitSignalLogged(SignalName.ButtonMousedOver, Resource);
+        this.EmitSignalLogged(SignalName.ButtonMousedOver, this);
     }
 
     private void OnMouseExited()
     {
         if (Resource == null) return;
         IsHovered = false;
-        this.EmitSignalLogged(SignalName.ButtonMousedAway, Resource);
+        this.EmitSignalLogged(SignalName.ButtonMousedAway, this);
     }
 
     private void OnButtonPressed()
@@ -376,7 +376,7 @@ public partial class ResourceIcon : PanelContainer
         {
             IsToggled = !IsToggled;
         }
-        this.EmitSignalLogged(SignalName.ButtonPressed, Resource);
+        this.EmitSignalLogged(SignalName.ButtonPressed, this);
     }
 
     private void OnFocusEntered() => OnMouseEntered();
@@ -386,7 +386,7 @@ public partial class ResourceIcon : PanelContainer
     private void OnRightClick()
     {
         if (Resource == null) return;
-        this.EmitSignalLogged(SignalName.ButtonRightClicked, Resource);
+        this.EmitSignalLogged(SignalName.ButtonRightClicked, this);
     }
 
     #endregion
@@ -480,7 +480,7 @@ public partial class ResourceIcon : PanelContainer
     public static ResourceIcon CreateInstance(DisplayResource resource)
     {
         var instance = GD
-            .Load<PackedScene>("res://Scenes/Resources/resource_icon.tscn")
+            .Load<PackedScene>("res://Scenes/Components/ResourceIcons/resource_icon.tscn")
             .Instantiate<ResourceIcon>();
         instance.Resource = resource;
         return instance;

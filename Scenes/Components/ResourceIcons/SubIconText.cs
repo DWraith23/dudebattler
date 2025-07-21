@@ -1,4 +1,4 @@
-using System;
+using DudeBattler.Scripts;
 using Godot;
 
 namespace DudeBattler.Scenes.Components.ResourceIcons;
@@ -6,16 +6,16 @@ namespace DudeBattler.Scenes.Components.ResourceIcons;
 [GlobalClass, Tool]
 public partial class SubIconText : SubIcon
 {
-    private string _text;
+    private string? _text;
     [Export]
-    public string Text
+    public string? Text
     {
         get => _text;
         set
         {
             if (_text == value) return;
             _text = value;
-            this.EmitChangedLog();
+            this.EmitChangedLogged();
         }
     }
 
@@ -28,7 +28,7 @@ public partial class SubIconText : SubIcon
         {
             if (_color == value) return;
             _color = value;
-            this.EmitChangedLog();
+            this.EmitChangedLogged();
         }
     }
 
@@ -41,7 +41,7 @@ public partial class SubIconText : SubIcon
         {
             if (_outlineColor == value) return;
             _outlineColor = value;
-            this.EmitChangedLog();
+            this.EmitChangedLogged();
         }
     }
 

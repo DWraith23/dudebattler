@@ -1,6 +1,5 @@
 using DudeBattler.Scripts;
 using Godot;
-using System;
 
 namespace DudeBattler.Scenes.Components.ResourceIcons;
 
@@ -45,6 +44,7 @@ public partial class IconMover : CenterContainer
 		}
 		var coord = GetGlobalMousePosition();
 		this.EmitSignalLogged(SignalName.MouseReleased, Icon, coord);
+		QueueFree();
 	}
 
 }

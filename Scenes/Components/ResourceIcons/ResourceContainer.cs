@@ -13,10 +13,10 @@ namespace DudeBattler.Scenes.Components.ResourceIcons;
 public partial class ResourceContainer : HFlowContainer
 {
     // Signals for button interactions
-    [Signal] public delegate void ButtonMousedOverEventHandler(DisplayResource resource);
-    [Signal] public delegate void ButtonMousedAwayEventHandler(DisplayResource resource);
-    [Signal] public delegate void ButtonPressedEventHandler(DisplayResource resource);
-    [Signal] public delegate void ButtonRightClickedEventHandler(DisplayResource resource);
+    [Signal] public delegate void ButtonMousedOverEventHandler(ResourceIcon resource);
+    [Signal] public delegate void ButtonMousedAwayEventHandler(ResourceIcon resource);
+    [Signal] public delegate void ButtonPressedEventHandler(ResourceIcon resource);
+    [Signal] public delegate void ButtonRightClickedEventHandler(ResourceIcon resource);
 
     #region Properties
 
@@ -249,16 +249,16 @@ public partial class ResourceContainer : HFlowContainer
         }
     }
 
-    private void EmitMouseOverSignal(DisplayResource resource) =>
+    private void EmitMouseOverSignal(ResourceIcon resource) =>
         this.EmitSignalLogged(SignalName.ButtonMousedOver, resource);
     
-    private void EmitMouseAwaySignal(DisplayResource resource) =>
+    private void EmitMouseAwaySignal(ResourceIcon resource) =>
         this.EmitSignalLogged(SignalName.ButtonMousedAway, resource);
 
-    private void EmitButtonPressedSignal(DisplayResource resource) =>
+    private void EmitButtonPressedSignal(ResourceIcon resource) =>
         this.EmitSignalLogged(SignalName.ButtonPressed, resource);
 
-    private void EmitRightClickedSignal(DisplayResource resource) =>
+    private void EmitRightClickedSignal(ResourceIcon resource) =>
         this.EmitSignalLogged(SignalName.ButtonRightClicked, resource);
 
     #endregion
@@ -268,19 +268,24 @@ public partial class ResourceContainer : HFlowContainer
     /// <summary>
     /// Adds a new resource to the container.
     /// </summary>
-    public void AddResource(DisplayResource resource) =>
-        AddChild(ResourceIcon.CreateInstance(resource));
-
-    public void AddRange(DisplayResource[] resources)
+    public void AddResource(DisplayResource? resource)
     {
+        if (resource == null) return;
+        AddChild(ResourceIcon.CreateInstance(resource));
+    }
+
+    public void AddRange(DisplayResource[]? resources)
+    {
+        if (resources == null) return;
         foreach (var resource in resources)
         {
             AddResource(resource);
         }
     }
 
-    public void AddResource(DisplayResource resource, Color borderColor)
+    public void AddResource(DisplayResource? resource, Color borderColor)
     {
+        if (resource == null) return;
         var icon = ResourceIcon.CreateInstance(resource);
         AddChild(icon);
         icon.NormalBorderColor = borderColor;
@@ -294,6 +299,11 @@ public partial class ResourceContainer : HFlowContainer
     {
         Resources.Where(icon => icon.Resource == resource).ToList()
             .ForEach(RemoveChild);
+    }
+
+    public void RemoveResource(ResourceIcon icon)
+    {
+        RemoveChild(icon);
     }
 
     /// <summary>
