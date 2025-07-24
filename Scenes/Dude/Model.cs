@@ -1,3 +1,5 @@
+using DudeBattler.Resources.Dude;
+using DudeBattler.Scripts;
 using Godot;
 using System;
 using System.Threading.Tasks;
@@ -101,6 +103,20 @@ public partial class Model : Node2D
                 part.Area.Monitorable = value;
                 part.Area.Monitoring = value;
             }
+        }
+    }
+
+    private RaceData? _race;
+    [Export]
+    public RaceData? Race
+    {
+        get => _race;
+        set
+        {
+            if (_race == value) return;
+            _race = value;
+            // SetRacialCharacteristics();
+            this.EmitSignalLogged(Resource.SignalName.Changed);
         }
     }
 
