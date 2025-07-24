@@ -21,7 +21,7 @@ public partial class ResourceContainer : HFlowContainer
     #region Properties
 
     private IconAttributes? _defaultAttributes;
-    private int _buttonSize = 64;
+    private Vector2 _buttonSize = new(64, 0);
     private int _columns = 1;
     private int _spacing = 10;
     private Color _normalBorderColor = Colors.Black;
@@ -61,12 +61,13 @@ public partial class ResourceContainer : HFlowContainer
     /// Size of the buttons in the container.
     /// </summary>
     [Export]
-    public int ButtonSize
+    public Vector2 ButtonSize
     {
         get => _buttonSize;
         set
         {
-            _buttonSize = Math.Max(value, 0);
+            if (value == _buttonSize) return;
+            _buttonSize = new(Math.Max(value.X, 0), Math.Max(value.Y, 0));
             Resources.ToList().ForEach(child => child.ButtonSize = _buttonSize);
             UpdateContainerSize();
         }
@@ -323,8 +324,9 @@ public partial class ResourceContainer : HFlowContainer
 
     private void UpdateContainerSize()
     {
-        var per = ButtonSize + 16 + _spacing;
-        CustomMinimumSize = new Vector2(per * _columns - (_spacing - 1), CustomMinimumSize.Y);
+        var per = ButtonSize.X + 16 + _spacing;
+        var minY = ButtonSize.Y == 0 ? ButtonSize.X : ButtonSize.Y;
+        CustomMinimumSize = new Vector2(per * Columns - (Spacing - 1), minY);
     }
 
     private void ConfigureIcon(ResourceIcon icon)

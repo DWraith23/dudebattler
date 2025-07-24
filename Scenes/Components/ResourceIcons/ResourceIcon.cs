@@ -41,7 +41,7 @@ public partial class ResourceIcon : PanelContainer
 
     #region Properties
     private IconAttributes? _attributes;
-    private int _buttonSize = 64;
+    private Vector2 _buttonSize = new(64, 0);
     private Color _normalBorderColor = Colors.Black;
     private Color _disabledBorderColor = Colors.DarkGray;
     private Color _hoverBorderColor = Colors.Yellow;
@@ -72,13 +72,20 @@ public partial class ResourceIcon : PanelContainer
     /// Size of the button.
     /// </summary>
     [Export]
-    public int ButtonSize
+    public Vector2 ButtonSize
     {
         get => _buttonSize;
         set
         {
-            _buttonSize = Math.Max(value, 0);
-            UpdateButtonSize();
+            if (value == _buttonSize) return;
+            _buttonSize = value;
+            var x = value.X;
+            var y = value.Y == 0 ? 0f : value.Y;
+            
+            if (Button != null)
+            {
+                Button.CustomMinimumSize = new Vector2(x, y);
+            }
         }
     }
     
@@ -256,7 +263,7 @@ public partial class ResourceIcon : PanelContainer
 
         if (Attributes.UpperLeft != null)
         {
-            var sub = Attributes.UpperLeft.GenerateSubIcon(Quadrant.UpperLeft, ButtonSize);
+            var sub = Attributes.UpperLeft.GenerateSubIcon(Quadrant.UpperLeft, (int)ButtonSize.X);
             if (sub != null)
             {
                 sub.Visible = Attributes.UpperLeft.Visible;
@@ -266,7 +273,7 @@ public partial class ResourceIcon : PanelContainer
 
         if (Attributes.UpperRight != null)
         {
-            var sub = Attributes.UpperRight.GenerateSubIcon(Quadrant.UpperRight, ButtonSize);
+            var sub = Attributes.UpperRight.GenerateSubIcon(Quadrant.UpperRight, (int)ButtonSize.X);
             if (sub != null)
             {
                 sub.Visible = Attributes.UpperRight.Visible;
@@ -276,7 +283,7 @@ public partial class ResourceIcon : PanelContainer
 
         if (Attributes.LowerLeft != null)
         {
-            var sub = Attributes.LowerLeft.GenerateSubIcon(Quadrant.LowerLeft, ButtonSize);
+            var sub = Attributes.LowerLeft.GenerateSubIcon(Quadrant.LowerLeft, (int)ButtonSize.X);
             if (sub != null)
             {
                 sub.Visible = Attributes.LowerLeft.Visible;
@@ -286,7 +293,7 @@ public partial class ResourceIcon : PanelContainer
 
         if (Attributes.LowerRight != null)
         {
-            var sub = Attributes.LowerRight.GenerateSubIcon(Quadrant.LowerRight, ButtonSize);
+            var sub = Attributes.LowerRight.GenerateSubIcon(Quadrant.LowerRight, (int)ButtonSize.X);
             if (sub != null)
             {
                 sub.Visible = Attributes.LowerRight.Visible;
@@ -306,7 +313,7 @@ public partial class ResourceIcon : PanelContainer
             };
             label.SetAnchorsAndOffsetsPreset(LayoutPreset.Center);
             AttributeContainer.AddChild(label);
-            while (label.Size.X > ButtonSize && label.GetThemeFontSize("font_size") > 10)
+            while (label.Size.X > ButtonSize.X && label.GetThemeFontSize("font_size") > 10)
             {
                 var size = label.GetThemeFontSize("font_size");
                 label.AddThemeFontSizeOverride("font_size", size - 1);
@@ -404,14 +411,6 @@ public partial class ResourceIcon : PanelContainer
         AddThemeStyleboxOverride("panel", stylebox);
     }
 
-    private void UpdateButtonSize()
-    {
-        if (Button != null)
-        {
-            Button.CustomMinimumSize = new Vector2(_buttonSize, _buttonSize);
-        }
-    }
-
     private void SetResource()
     {
         if (Button == null) return;
@@ -492,7 +491,7 @@ public partial class ResourceIcon : PanelContainer
     public static ResourceIcon CreateInstance(DisplayResource resource, int size)
     {
         var instance = CreateInstance(resource);
-        instance.ButtonSize = size;
+        instance.ButtonSize = new(size, 0);
         return instance;
     }
 }
