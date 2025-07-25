@@ -9,6 +9,7 @@ Description = "Green???"
 RaceType = 3
 ModelColor = Color(0.2, 0.356863, 0, 1)
 Scale = Vector2(1, 1)
+LineThickness = 6.0
 StatModifiers = {
 0: 2,
 1: 0,

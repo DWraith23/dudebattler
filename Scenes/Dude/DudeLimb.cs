@@ -169,15 +169,16 @@ public partial class DudeLimb : BodyPart
         if (Drawn || IsDrawing) DrawCircle(Vector2.Zero, LineWidth / 2, Color, true);
         var scaler = LimbSide == Side.Right ? 1 : -1;
         var start = Vector2.Zero;
+        var thickness = LimbType == Type.Arm ? LineWidth * 1.5f : LineWidth + 1.5f + 1;
 
         if (IsDrawing)
         {
-            DrawLine(start, new Vector2(CurrentLength * scaler, 0), Color, LineWidth);
+            DrawLine(start, new Vector2(CurrentLength * scaler, 0), Color, thickness);
             return;
         }
         
         var end = new Vector2(scaler * Length, 0f);
-        if (Drawn) DrawLine(start, end, Color, LineWidth);
+        if (Drawn) DrawLine(start, end, Color, thickness);
     }
 
     public override async Task AnimateDrawing(float speed)
