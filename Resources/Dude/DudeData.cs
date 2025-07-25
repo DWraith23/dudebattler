@@ -36,6 +36,11 @@ public partial class DudeData : DisplayResource
 
     #region Properties and Fields
 
+    #region Overrides
+
+
+    #endregion
+
     #region Fields
 
     private int _currentHealth = 0;
@@ -51,10 +56,12 @@ public partial class DudeData : DisplayResource
     [Export] public Equipment Equipment { get; set; } = new();
     [Export] public Statuses StatusEffects { get; set; } = new();
 
+    
+
     // Vitals
-    public int MaxHealth => GetMaxHealth();
-    public int MaxEnergy => GetMaxEnergy();
-    public int MaxMana => GetMaxMana();
+    public int MaxHealth => StatCalculation.GetMaxHealth(Stats, StatusEffects);
+    public int MaxEnergy => StatCalculation.GetMaxEnergy(Stats, StatusEffects);
+    public int MaxMana => StatCalculation.GetMaxMana(Stats, StatusEffects);
 
     public int CurrentHealth
     {
@@ -105,39 +112,5 @@ public partial class DudeData : DisplayResource
     }
 
     #endregion
-
-    #region Statistics Calculations
-
-    private int GetMaxHealth()
-    {
-        var basic = 15;
-        var stats = (int)Math.Floor(Stats.Endurance * 1.5f);
-        stats += (int)Math.Floor(Stats.Strength * 0.5f);
-        // TODO: Effects/other
-        return basic + stats;
-    }
-
-    private int GetMaxEnergy()
-    {
-        var basic = 20;
-        var stats = (int)Math.Floor(Stats.Endurance * 2f);
-        stats += (int)Math.Floor(Stats.Strength * 0.5f);
-        stats += (int)Math.Floor(Stats.Agility * 0.5f);
-        // TODO: Effects/other
-        return basic + stats;
-    }
-
-    private int GetMaxMana()
-    {
-        var basic = 15;
-        var stats = (Stats.Mind * 1.5f).RoundDown();
-        stats += Stats.Will;
-        // TODO: Effects/other
-        return basic + stats;
-    }
-
-
-    #endregion
-
 
 }
