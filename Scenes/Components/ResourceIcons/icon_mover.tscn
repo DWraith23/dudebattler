@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmnqa1wg1vvjh"]
+
+[ext_resource type="Script" path="res://Scenes/Components/ResourceIcons/IconMover.cs" id="1_oqinv"]
+
+[node name="Icon Mover" type="CenterContainer"]
+use_top_left = true
+script = ExtResource("1_oqinv")

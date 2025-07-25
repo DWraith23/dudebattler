@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr0wgfucitgh"]
+
+[ext_resource type="Script" path="res://Scenes/Components/ResourceIcons/ResourceContainer.cs" id="1_htf75"]
+
+[node name="Resource Container" type="HFlowContainer"]
+custom_minimum_size = Vector2(81, 0)
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+script = ExtResource("1_htf75")
+NormalBorderColor = Color(1, 1, 1, 1)
+
+[connection signal="child_entered_tree" from="." to="." method="OnIconAdded"]
+[connection signal="child_exiting_tree" from="." to="." method="OnIconRemoved"]
