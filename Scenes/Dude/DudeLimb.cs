@@ -68,7 +68,7 @@ public partial class DudeLimb : BodyPart
 
     private float _lineWidth = 5f;
     [Export]
-    public float LineWidth
+    public override float LineWidth
     {
         get => _lineWidth;
         set

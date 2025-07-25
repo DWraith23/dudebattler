@@ -2,6 +2,7 @@ using DudeBattler.Resources.Dude;
 using DudeBattler.Scripts;
 using Godot;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DudeBattler.Scenes.Dude;
@@ -115,8 +116,7 @@ public partial class Model : Node2D
         {
             if (_race == value) return;
             _race = value;
-            // SetRacialCharacteristics();
-            this.EmitSignalLogged(Resource.SignalName.Changed);
+            SetRacialCharacteristics();
         }
     }
 
@@ -134,6 +134,25 @@ public partial class Model : Node2D
             await part.AnimateDrawing(speed);
         }
         Drawn = true;
+    }
+
+    private void SetRacialCharacteristics()
+    {
+        if (Race == null)
+        {
+            GD.PrintErr("Null race.");
+            return;
+        }
+
+        Scale = Race.Scale;
+        foreach (var part in BodyParts.Where(p => p != Face))
+        {
+            part.Color = Race.ModelColor;
+            var width = part is DudeBody
+                ? Race.LineThickness * 2f
+                : Race.LineThickness;
+            part.LineWidth = width;
+        }
     }
 
     #endregion

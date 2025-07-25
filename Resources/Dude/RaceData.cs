@@ -18,13 +18,14 @@ public partial class RaceData : DisplayResource
     }
 
     [Export] public override string? Name { get; set; }
-    [Export] public override string? Description { get; set; }
+    [Export(PropertyHint.MultilineText)] public override string? Description { get; set; }
     [Export] public Race RaceType { get; set; } = Race.Human;
 
     [ExportGroup("Racial Features")]
     [ExportSubgroup("Visual")]
-    [Export] public Color ModelColor { get; set; }
-    [Export] public Vector2 Scale { get; set; }
+    [Export] public Color ModelColor { get; set; } = Colors.Black;
+    [Export] public Vector2 Scale { get; set; } = Vector2.One;
+    [Export] public float LineThickness { get; set; } = 5f;
 
     [ExportSubgroup("Racial Traits")]
     [Export]

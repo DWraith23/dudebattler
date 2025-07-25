@@ -43,6 +43,8 @@ public partial class DudeData : DisplayResource
 
     #region Fields
 
+    private RaceData _race;
+
     private int _currentHealth = 0;
     private int _currentEnergy = 0;
     private int _currentMana = 0;
@@ -55,8 +57,21 @@ public partial class DudeData : DisplayResource
     [Export] public StatBlock Stats { get; set; } = new();
     [Export] public Equipment Equipment { get; set; } = new();
     [Export] public Statuses StatusEffects { get; set; } = new();
-
     
+    [Export]
+    public RaceData Race
+    {
+        get => _race;
+        set
+        {
+            if (_race == value) return;
+            _race = value;
+            this.EmitSignalLogged(Resource.SignalName.Changed);
+        }
+    }
+
+
+
 
     // Vitals
     public int MaxHealth => StatCalculation.GetMaxHealth(Stats, StatusEffects);

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="RaceData" load_steps=2 format=3 uid="uid://b7mojq0cvyjeh"]
+
+[ext_resource type="Script" path="res://Resources/Dude/RaceData.cs" id="1_cfy3m"]
+
+[resource]
+script = ExtResource("1_cfy3m")
+Name = "Orc"
+Description = "Green???"
+RaceType = 3
+ModelColor = Color(0.2, 0.356863, 0, 1)
+Scale = Vector2(1, 1)
+StatModifiers = {
+0: 2,
+1: 0,
+2: 1,
+3: 1,
+4: -2,
+5: -1,
+6: -1,
+7: 0
+}

@@ -13,6 +13,7 @@ public abstract partial class BodyPart : Node2D
     public virtual Vector2 ConnectionPoint { get; }
     protected Shape2D? Shape => Collider?.Shape;
     public virtual Color Color { get; set; }
+    public virtual float LineWidth { get; set; }
 
     protected abstract void GenerateNodes();
 

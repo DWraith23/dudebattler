@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RaceData" load_steps=2 format=3 uid="uid://1ryq6eprqtw6"]
+
+[ext_resource type="Script" path="res://Resources/Dude/RaceData.cs" id="1_7c83q"]
+
+[resource]
+script = ExtResource("1_7c83q")
+Name = "Dwarf"
+Description = "Short and angry."
+RaceType = 1
+ModelColor = Color(0, 0, 0, 1)
+Scale = Vector2(1.1, 0.66)
+LineThickness = 7.0
+StatModifiers = {
+0: 1,
+1: -1,
+2: 0,
+3: 2,
+4: 0,
+5: 0,
+6: -2,
+7: 0
+}

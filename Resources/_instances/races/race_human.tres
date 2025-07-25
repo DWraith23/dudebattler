@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="RaceData" load_steps=2 format=3 uid="uid://btaqbkgmol3qc"]
+
+[ext_resource type="Script" path="res://Resources/Dude/RaceData.cs" id="1_ar6i0"]
+
+[resource]
+script = ExtResource("1_ar6i0")
+Name = "Human"
+Description = "The most default of races."
+RaceType = 0
+ModelColor = Color(0, 0, 0, 1)
+Scale = Vector2(1, 1)
+StatModifiers = {
+0: 0,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0,
+6: 0,
+7: 0
+}
