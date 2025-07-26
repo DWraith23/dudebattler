@@ -9,6 +9,7 @@ Description = "The most default of races."
 RaceType = 0
 ModelColor = Color(0, 0, 0, 1)
 Scale = Vector2(1, 1)
+LineThickness = 5.0
 StatModifiers = {
 0: 0,
 1: 0,

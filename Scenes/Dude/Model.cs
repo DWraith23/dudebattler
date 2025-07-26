@@ -20,7 +20,7 @@ public partial class Model : Node2D
 
             return;
         }
-
+        if (Race != null) SetRacialCharacteristics();
         if (!Drawn) await AnimateDrawing(0.1f);
         foreach (var part in BodyParts)
         {
