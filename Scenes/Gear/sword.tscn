@@ -10,6 +10,9 @@
 script = ExtResource("2_t81do")
 Name = "Sword"
 Description = "A suword."
+IconSize = 100
+IconOffset = Vector2(0, 25)
+DamageDice = Vector2i(1, 6)
 
 [sub_resource type="Resource" id="Resource_2iw6l"]
 script = ExtResource("2_0oncs")

@@ -74,7 +74,8 @@ public partial class Weapon : Node2D
         viewport.AddChild(centerer);
         centerer.AddChild(control);
         control.AddChild(weapon);
-        weapon.Position = weapon.Position + weapon.Data.IconOffset;
+        weapon.Position += weapon.Data.IconOffset;
+        weapon.RotationDegrees = 30;
         await Tools.AwaitProcessFrame(currentScene);
         weapon.Data.Icon = viewport.GetTexture();
         return weapon.Data;
