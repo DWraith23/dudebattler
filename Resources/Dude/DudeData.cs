@@ -43,7 +43,7 @@ public partial class DudeData : DisplayResource
 
     #region Fields
 
-    private RaceData _race;
+    private RaceData _race = GD.Load<RaceData>("res://Resources/_instances/races/race_human.tres");
 
     private int _currentHealth = 0;
     private int _currentEnergy = 0;

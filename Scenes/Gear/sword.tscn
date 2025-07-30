@@ -1,8 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpaoq7cri63pn"]
+[gd_scene load_steps=11 format=3 uid="uid://cpaoq7cri63pn"]
 
+[ext_resource type="Script" path="res://Scenes/Gear/Weapon.cs" id="1_3ru6i"]
 [ext_resource type="Script" path="res://Scenes/Components/Shape2d.cs" id="1_sf4yu"]
 [ext_resource type="Script" path="res://Resources/Shape2D/LineData.cs" id="2_0oncs"]
+[ext_resource type="Script" path="res://Resources/Items/WeaponData.cs" id="2_t81do"]
 [ext_resource type="Script" path="res://Resources/Shape2D/CircleData.cs" id="3_lt0by"]
+
+[sub_resource type="Resource" id="Resource_i84m7"]
+script = ExtResource("2_t81do")
+Name = "Sword"
+Description = "A suword."
 
 [sub_resource type="Resource" id="Resource_2iw6l"]
 script = ExtResource("2_0oncs")
@@ -36,9 +43,11 @@ Start = Vector2(0, 0)
 End = Vector2(0, -70)
 Width = 3.0
 Color = Color(0, 0, 0, 1)
-HasCollision = true
+HasCollision = false
 
 [node name="Sword" type="Node2D"]
+script = ExtResource("1_3ru6i")
+Data = SubResource("Resource_i84m7")
 
 [node name="Hilt" type="Node2D" parent="."]
 script = ExtResource("1_sf4yu")

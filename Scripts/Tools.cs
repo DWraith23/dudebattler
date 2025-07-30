@@ -64,4 +64,8 @@ public static class Tools
             GD.PrintErr($"Animation '{animationName}' not found in AnimationPlayer.");
         }
     }
+
+    public static async Task AwaitProcessFrame(Node node) =>
+        await node.GetTree().ToSignal(node.GetTree(), SceneTree.SignalName.ProcessFrame);
+
 }

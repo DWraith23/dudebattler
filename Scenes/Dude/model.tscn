@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqa8g03cnjw73"]
+[gd_scene load_steps=10 format=3 uid="uid://cqa8g03cnjw73"]
 
 [ext_resource type="PackedScene" uid="uid://ch0qj8nwrm4ye" path="res://Scenes/Dude/dude_head.tscn" id="1_ajjwl"]
 [ext_resource type="Script" path="res://Scenes/Dude/Model.cs" id="1_jrjna"]
 [ext_resource type="PackedScene" uid="uid://cbtqb7v1bt085" path="res://Scenes/Dude/dude_body.tscn" id="2_kc4lg"]
-[ext_resource type="Resource" uid="uid://btaqbkgmol3qc" path="res://Resources/_instances/races/race_human.tres" id="2_xujve"]
 [ext_resource type="PackedScene" uid="uid://bv030wx4seset" path="res://Scenes/Dude/dude_limb.tscn" id="3_iiuig"]
 [ext_resource type="PackedScene" uid="uid://cm25pvt5v8aqw" path="res://Scenes/Dude/face.tscn" id="5_tfjry"]
 
@@ -243,7 +242,6 @@ _data = {
 
 [node name="Model" type="Node2D"]
 script = ExtResource("1_jrjna")
-Race = ExtResource("2_xujve")
 
 [node name="Head" parent="." instance=ExtResource("1_ajjwl")]
 position = Vector2(2, -220)

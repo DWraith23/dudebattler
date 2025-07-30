@@ -2,6 +2,7 @@ using Godot;
 
 namespace DudeBattler.Resources;
 
+[GlobalClass]
 public partial class DisplayResource : Resource
 {
     public virtual string? Name { get; set; } = string.Empty;
