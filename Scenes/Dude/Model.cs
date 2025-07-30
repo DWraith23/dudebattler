@@ -2,6 +2,7 @@ using DudeBattler.Resources.Dude;
 using DudeBattler.Scripts;
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -72,6 +73,18 @@ public partial class Model : Node2D
         Face
     ];
 
+    private Dictionary<BodyPart, float> StandingRotations => new()
+    {
+        { LeftUpperArm, -75f },
+        { LeftLowerArm, -15f },
+        { RightUpperArm, 75f },
+        { RightLowerArm, 15f },
+        { LeftUpperLeg, -75f },
+        { LeftLowerLeg, -15f },
+        { RightUpperLeg, 75f },
+        { RightLowerLeg, 15f },
+    };
+
     private bool _drawn = false;
     [Export]
     public bool Drawn
@@ -120,6 +133,34 @@ public partial class Model : Node2D
         }
     }
 
+    private bool _idling = false;
+    [Export]
+    public bool Idling
+    {
+        get => _idling;
+        set
+        {
+            if (_idling == value) return;
+            _idling = value;
+            if (value)
+            {
+                if (Animator.CurrentAnimation != "idle")
+                {
+                    Animator.Stop();
+                    SetToStandingPose();
+                    Animator.Play("idle");
+                }
+            }
+            else
+            {
+                if (Animator.CurrentAnimation == "idle")
+                {
+                    Animator.Stop();
+                }
+            }
+        }
+    }
+
     #endregion
 
 
@@ -152,6 +193,17 @@ public partial class Model : Node2D
                 ? Race.LineThickness * 2f
                 : Race.LineThickness;
             part.LineWidth = width;
+        }
+    }
+
+    public void SetToStandingPose()
+    {
+        foreach (var part in BodyParts)
+        {
+            if (StandingRotations.TryGetValue(part, out float value))
+            {
+                part.RotationDegrees = value;
+            }
         }
     }
 
